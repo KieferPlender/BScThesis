@@ -1,0 +1,873 @@
+% Appendix Tables - Complete Analysis Results
+% Add \usepackage{booktabs} to your LaTeX preamble
+
+% ========== LEXICAL DIVERSITY ==========
+\begin{table}[htbp]
+\centering
+\caption{Lexical Diversity Metrics by Model}
+\label{tab:lexical_diversity}
+\begin{tabular}{lcc}
+\toprule
+Model & TTR & Avg. Sentence Length \\
+\midrule
+RWKV-4-Raven-14B & 0.57 & 24.56 \\
+alpaca-13b & 0.71 & 20.70 \\
+chatglm-6b & 0.54 & 26.80 \\
+claude-v1 & 0.54 & 23.08 \\
+gpt-3.5-turbo & 0.62 & 23.42 \\
+gpt-4 & 0.59 & 24.55 \\
+koala-13b & 0.53 & 27.31 \\
+oasst-pythia-12b & 0.60 & 24.25 \\
+palm-2 & 0.54 & 21.58 \\
+vicuna-13b & 0.55 & 25.94 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ========== PART-OF-SPEECH TAGS ==========
+\begin{table}[htbp]
+\centering
+\caption{Content Word POS Distribution (per 1000 tokens)}
+\label{tab:pos_content_appendix}
+\begin{tabular}{lccccc}
+\toprule
+Model & NOUN & VERB & ADJ & ADV & PROPN \\
+\midrule
+RWKV-4-Raven-14B & 187.40 & 95.11 & 64.56 & 23.23 & 51.86 \\
+alpaca-13b & 187.46 & 97.29 & 65.49 & 25.92 & 57.95 \\
+chatglm-6b & 187.74 & 95.46 & 65.18 & 24.11 & 45.08 \\
+claude-v1 & 195.16 & 100.42 & 68.15 & 27.93 & 55.61 \\
+gpt-3.5-turbo & 187.51 & 96.61 & 64.43 & 25.61 & 54.59 \\
+gpt-4 & 193.66 & 95.51 & 65.48 & 23.24 & 61.74 \\
+koala-13b & 184.12 & 92.59 & 63.32 & 21.99 & 51.01 \\
+oasst-pythia-12b & 188.31 & 96.87 & 64.81 & 24.64 & 53.44 \\
+palm-2 & 172.49 & 98.99 & 52.91 & 29.41 & 42.40 \\
+vicuna-13b & 188.75 & 95.25 & 66.29 & 24.19 & 49.08 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Function Word POS Distribution (per 1000 tokens)}
+\label{tab:pos_function_appendix}
+\begin{tabular}{lccccccc}
+\toprule
+Model & DET & ADP & PRON & AUX & CCONJ & SCONJ & PART \\
+\midrule
+RWKV-4-Raven-14B & 85.57 & 78.88 & 67.92 & 61.16 & 33.87 & 14.67 & 25.45 \\
+alpaca-13b & 84.04 & 79.76 & 65.83 & 63.77 & 31.20 & 13.76 & 23.74 \\
+chatglm-6b & 83.89 & 80.28 & 68.81 & 62.29 & 36.21 & 17.54 & 27.46 \\
+claude-v1 & 71.28 & 73.63 & 52.10 & 45.11 & 30.88 & 11.26 & 21.17 \\
+gpt-3.5-turbo & 77.23 & 79.41 & 66.23 & 57.50 & 34.30 & 15.85 & 24.46 \\
+gpt-4 & 75.31 & 76.30 & 53.10 & 43.56 & 33.69 & 14.43 & 21.73 \\
+koala-13b & 82.20 & 78.90 & 67.09 & 59.50 & 35.09 & 16.04 & 26.09 \\
+oasst-pythia-12b & 84.58 & 78.32 & 68.69 & 62.00 & 34.27 & 15.35 & 25.20 \\
+palm-2 & 80.74 & 79.82 & 80.20 & 69.07 & 31.01 & 17.31 & 33.02 \\
+vicuna-13b & 83.06 & 80.80 & 64.72 & 58.63 & 36.68 & 15.24 & 25.48 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Miscellaneous POS Distribution (per 1000 tokens)}
+\label{tab:pos_misc_appendix}
+\begin{tabular}{lccccc}
+\toprule
+Model & PUNCT & NUM & SYM & INTJ & X \\
+\midrule
+RWKV-4-Raven-14B & 144.81 & 23.93 & 3.23 & 5.52 & 6.88 \\
+alpaca-13b & 147.20 & 26.09 & 2.51 & 6.93 & 6.54 \\
+chatglm-6b & 139.80 & 23.30 & 3.44 & 4.59 & 6.60 \\
+claude-v1 & 153.37 & 31.86 & 5.47 & 1.84 & 10.03 \\
+gpt-3.5-turbo & 150.08 & 24.49 & 3.20 & 4.89 & 7.87 \\
+gpt-4 & 165.31 & 28.99 & 3.64 & 3.82 & 10.61 \\
+koala-13b & 145.57 & 20.58 & 3.01 & 5.34 & 13.67 \\
+oasst-pythia-12b & 141.60 & 22.91 & 2.74 & 5.04 & 5.64 \\
+palm-2 & 142.93 & 23.33 & 5.39 & 4.95 & 5.07 \\
+vicuna-13b & 145.42 & 23.25 & 3.57 & 3.88 & 8.27 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ========== COMPLETE FUNCTION WORD TABLES ==========
+
+% --- Pronouns ---
+\begin{table}[htbp]
+\centering
+\caption{Pronouns Usage (mean count per response) (Part 1/2)}
+\label{tab:fw_pronouns_part1}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \textit{i} & \textit{you} & \textit{he} & \textit{she} & \textit{it} & \textit{we} \\
+\midrule
+RWKV-4-Raven-14B & 0.85 & 1.24 & 0.23 & 0.18 & 1.24 & 0.25 \\
+alpaca-13b & 0.39 & 0.57 & 0.16 & 0.08 & 0.63 & 0.06 \\
+chatglm-6b & 0.93 & 1.55 & 0.23 & 0.19 & 1.61 & 0.24 \\
+claude-v1 & 0.77 & 1.56 & 0.24 & 0.12 & 1.23 & 0.27 \\
+gpt-3.5-turbo & 0.71 & 1.05 & 0.20 & 0.16 & 0.98 & 0.34 \\
+gpt-4 & 0.67 & 1.18 & 0.19 & 0.13 & 1.05 & 0.32 \\
+koala-13b & 0.81 & 1.40 & 0.21 & 0.12 & 1.65 & 0.23 \\
+oasst-pythia-12b & 0.67 & 1.15 & 0.34 & 0.17 & 1.11 & 0.20 \\
+palm-2 & 1.35 & 1.99 & 0.41 & 0.19 & 1.75 & 0.31 \\
+vicuna-13b & 0.84 & 1.29 & 0.23 & 0.16 & 1.43 & 0.31 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Pronouns Usage (mean count per response) (Part 2/2)}
+\label{tab:fw_pronouns_part2}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \textit{they} & \textit{me} & \textit{him} & \textit{her} & \textit{us} & \textit{them} \\
+\midrule
+RWKV-4-Raven-14B & 0.37 & 0.10 & 0.04 & 0.18 & 0.05 & 0.14 \\
+alpaca-13b & 0.17 & 0.05 & 0.03 & 0.10 & 0.04 & 0.08 \\
+chatglm-6b & 0.44 & 0.13 & 0.05 & 0.17 & 0.05 & 0.15 \\
+claude-v1 & 0.45 & 0.41 & 0.06 & 0.16 & 0.08 & 0.19 \\
+gpt-3.5-turbo & 0.29 & 0.09 & 0.05 & 0.16 & 0.06 & 0.13 \\
+gpt-4 & 0.37 & 0.08 & 0.05 & 0.21 & 0.05 & 0.20 \\
+koala-13b & 0.40 & 0.14 & 0.05 & 0.15 & 0.06 & 0.16 \\
+oasst-pythia-12b & 0.34 & 0.08 & 0.06 & 0.15 & 0.06 & 0.14 \\
+palm-2 & 0.63 & 0.11 & 0.05 & 0.12 & 0.13 & 0.20 \\
+vicuna-13b & 0.38 & 0.11 & 0.04 & 0.19 & 0.07 & 0.16 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Prepositions ---
+\begin{table}[htbp]
+\centering
+\caption{Prepositions Usage (mean count per response) (Part 1/2)}
+\label{tab:fw_prepositions_part1}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \textit{in} & \textit{on} & \textit{at} & \textit{to} & \textit{from} & \textit{with} \\
+\midrule
+RWKV-4-Raven-14B & 1.84 & 0.72 & 0.17 & 3.71 & 0.32 & 0.90 \\
+alpaca-13b & 0.82 & 0.29 & 0.08 & 1.70 & 0.19 & 0.38 \\
+chatglm-6b & 2.22 & 0.92 & 0.22 & 4.70 & 0.42 & 0.96 \\
+claude-v1 & 2.69 & 1.12 & 0.47 & 4.44 & 0.65 & 1.19 \\
+gpt-3.5-turbo & 1.66 & 0.67 & 0.18 & 3.23 & 0.34 & 0.82 \\
+gpt-4 & 2.28 & 0.89 & 0.29 & 4.07 & 0.46 & 1.22 \\
+koala-13b & 2.25 & 0.93 & 0.22 & 4.66 & 0.42 & 0.98 \\
+oasst-pythia-12b & 1.70 & 0.68 & 0.16 & 3.59 & 0.35 & 0.75 \\
+palm-2 & 2.30 & 0.90 & 0.38 & 5.25 & 0.48 & 1.05 \\
+vicuna-13b & 2.19 & 0.90 & 0.23 & 4.42 & 0.39 & 0.95 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Prepositions Usage (mean count per response) (Part 2/2)}
+\label{tab:fw_prepositions_part2}
+\begin{tabular}{lcccc}
+\toprule
+Model & \textit{by} & \textit{of} & \textit{for} & \textit{about} \\
+\midrule
+RWKV-4-Raven-14B & 0.53 & 3.17 & 1.18 & 0.22 \\
+alpaca-13b & 0.23 & 1.37 & 0.50 & 0.09 \\
+chatglm-6b & 0.53 & 3.85 & 1.35 & 0.27 \\
+claude-v1 & 0.58 & 3.60 & 1.90 & 0.30 \\
+gpt-3.5-turbo & 0.43 & 2.48 & 1.05 & 0.17 \\
+gpt-4 & 0.59 & 3.41 & 1.54 & 0.19 \\
+koala-13b & 0.65 & 4.04 & 1.44 & 0.25 \\
+oasst-pythia-12b & 0.51 & 2.88 & 1.07 & 0.19 \\
+palm-2 & 0.59 & 3.98 & 1.47 & 0.33 \\
+vicuna-13b & 0.60 & 3.76 & 1.38 & 0.21 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Articles_Determiners ---
+\begin{table}[htbp]
+\centering
+\caption{Articles Determiners Usage (mean count per response) (Part 1/2)}
+\label{tab:fw_articles_determiners_part1}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \textit{the} & \textit{a} & \textit{an} & \textit{this} & \textit{that} & \textit{these} \\
+\midrule
+RWKV-4-Raven-14B & 7.38 & 3.93 & 0.39 & 0.68 & 1.54 & 0.16 \\
+alpaca-13b & 3.17 & 1.66 & 0.25 & 0.19 & 0.46 & 0.04 \\
+chatglm-6b & 8.71 & 4.55 & 0.43 & 0.83 & 1.97 & 0.16 \\
+claude-v1 & 8.72 & 4.18 & 0.72 & 1.14 & 1.28 & 0.24 \\
+gpt-3.5-turbo & 5.84 & 2.99 & 0.42 & 0.61 & 1.22 & 0.14 \\
+gpt-4 & 8.33 & 3.97 & 0.55 & 0.86 & 1.14 & 0.30 \\
+koala-13b & 9.11 & 4.52 & 0.44 & 0.74 & 1.97 & 0.20 \\
+oasst-pythia-12b & 6.82 & 3.48 & 0.34 & 0.55 & 1.48 & 0.14 \\
+palm-2 & 8.97 & 5.14 & 0.42 & 1.16 & 2.27 & 0.23 \\
+vicuna-13b & 8.53 & 4.33 & 0.46 & 0.78 & 1.81 & 0.20 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Articles Determiners Usage (mean count per response) (Part 2/2)}
+\label{tab:fw_articles_determiners_part2}
+\begin{tabular}{lcccc}
+\toprule
+Model & \textit{those} & \textit{my} & \textit{your} & \textit{their} \\
+\midrule
+RWKV-4-Raven-14B & 0.03 & 0.13 & 0.63 & 0.32 \\
+alpaca-13b & 0.02 & 0.07 & 0.21 & 0.14 \\
+chatglm-6b & 0.04 & 0.17 & 0.67 & 0.38 \\
+claude-v1 & 0.11 & 0.18 & 0.81 & 0.35 \\
+gpt-3.5-turbo & 0.04 & 0.15 & 0.58 & 0.33 \\
+gpt-4 & 0.04 & 0.16 & 0.92 & 0.54 \\
+koala-13b & 0.04 & 0.20 & 0.64 & 0.37 \\
+oasst-pythia-12b & 0.04 & 0.12 & 0.61 & 0.33 \\
+palm-2 & 0.03 & 0.16 & 0.90 & 0.35 \\
+vicuna-13b & 0.04 & 0.20 & 0.64 & 0.36 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Conjunctions ---
+\begin{table}[htbp]
+\centering
+\caption{Conjunctions Usage (mean count per response) (Part 1/3)}
+\label{tab:fw_conjunctions_part1}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \textit{and} & \textit{or} & \textit{but} & \textit{because} & \textit{although} & \textit{while} \\
+\midrule
+RWKV-4-Raven-14B & 4.23 & 0.73 & 0.26 & 0.07 & 0.00 & 0.12 \\
+alpaca-13b & 1.98 & 0.24 & 0.11 & 0.04 & 0.00 & 0.07 \\
+chatglm-6b & 5.21 & 1.03 & 0.35 & 0.10 & 0.00 & 0.14 \\
+claude-v1 & 5.45 & 1.16 & 0.58 & 0.05 & 0.01 & 0.19 \\
+gpt-3.5-turbo & 3.70 & 0.73 & 0.29 & 0.07 & 0.00 & 0.11 \\
+gpt-4 & 5.55 & 1.26 & 0.24 & 0.04 & 0.01 & 0.19 \\
+koala-13b & 5.26 & 0.97 & 0.34 & 0.08 & 0.00 & 0.15 \\
+oasst-pythia-12b & 4.34 & 0.60 & 0.23 & 0.06 & 0.00 & 0.11 \\
+palm-2 & 4.46 & 0.73 & 0.38 & 0.15 & 0.00 & 0.11 \\
+vicuna-13b & 5.07 & 1.06 & 0.34 & 0.06 & 0.00 & 0.13 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Conjunctions Usage (mean count per response) (Part 2/3)}
+\label{tab:fw_conjunctions_part2}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \textit{if} & \textit{when} & \textit{however} & \textit{therefore} & \textit{moreover} & \textit{furthermore} \\
+\midrule
+RWKV-4-Raven-14B & 0.34 & 0.15 & 0.12 & 0.02 & 0.00 & 0.00 \\
+alpaca-13b & 0.13 & 0.08 & 0.02 & 0.01 & 0.00 & 0.01 \\
+chatglm-6b & 0.53 & 0.16 & 0.13 & 0.05 & 0.00 & 0.00 \\
+claude-v1 & 0.82 & 0.21 & 0.11 & 0.04 & 0.00 & 0.00 \\
+gpt-3.5-turbo & 0.35 & 0.12 & 0.16 & 0.06 & 0.00 & 0.00 \\
+gpt-4 & 0.45 & 0.17 & 0.17 & 0.01 & 0.00 & 0.00 \\
+koala-13b & 0.50 & 0.16 & 0.15 & 0.04 & 0.00 & 0.00 \\
+oasst-pythia-12b & 0.35 & 0.13 & 0.10 & 0.03 & 0.00 & 0.00 \\
+palm-2 & 0.70 & 0.24 & 0.20 & 0.05 & 0.00 & 0.00 \\
+vicuna-13b & 0.47 & 0.15 & 0.15 & 0.05 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Conjunctions Usage (mean count per response) (Part 3/3)}
+\label{tab:fw_conjunctions_part3}
+\begin{tabular}{lcc}
+\toprule
+Model & \textit{nevertheless} & \textit{thus} \\
+\midrule
+RWKV-4-Raven-14B & 0.00 & 0.00 \\
+alpaca-13b & 0.00 & 0.00 \\
+chatglm-6b & 0.00 & 0.00 \\
+claude-v1 & 0.00 & 0.00 \\
+gpt-3.5-turbo & 0.00 & 0.00 \\
+gpt-4 & 0.00 & 0.01 \\
+koala-13b & 0.00 & 0.00 \\
+oasst-pythia-12b & 0.00 & 0.00 \\
+palm-2 & 0.00 & 0.00 \\
+vicuna-13b & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Auxiliary_Verbs ---
+\begin{table}[htbp]
+\centering
+\caption{Auxiliary Verbs Usage (mean count per response) (Part 1/4)}
+\label{tab:fw_auxiliary_verbs_part1}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \textit{be} & \textit{am} & \textit{is} & \textit{are} & \textit{was} & \textit{were} \\
+\midrule
+RWKV-4-Raven-14B & 0.75 & 0.11 & 2.19 & 0.86 & 0.33 & 0.10 \\
+alpaca-13b & 0.38 & 0.03 & 1.04 & 0.40 & 0.17 & 0.04 \\
+chatglm-6b & 1.03 & 0.10 & 2.85 & 0.98 & 0.36 & 0.10 \\
+claude-v1 & 0.92 & 0.03 & 2.33 & 1.35 & 0.34 & 0.15 \\
+gpt-3.5-turbo & 0.59 & 0.07 & 1.65 & 0.67 & 0.29 & 0.09 \\
+gpt-4 & 0.72 & 0.07 & 1.64 & 0.70 & 0.25 & 0.08 \\
+koala-13b & 1.07 & 0.08 & 2.75 & 0.93 & 0.35 & 0.13 \\
+oasst-pythia-12b & 0.74 & 0.07 & 1.93 & 0.70 & 0.37 & 0.08 \\
+palm-2 & 1.37 & 0.26 & 3.92 & 1.62 & 0.48 & 0.11 \\
+vicuna-13b & 0.92 & 0.10 & 2.54 & 0.97 & 0.37 & 0.11 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Auxiliary Verbs Usage (mean count per response) (Part 2/4)}
+\label{tab:fw_auxiliary_verbs_part2}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \textit{have} & \textit{has} & \textit{had} & \textit{do} & \textit{does} & \textit{did} \\
+\midrule
+RWKV-4-Raven-14B & 0.46 & 0.32 & 0.13 & 0.23 & 0.05 & 0.04 \\
+alpaca-13b & 0.19 & 0.11 & 0.06 & 0.12 & 0.02 & 0.03 \\
+chatglm-6b & 0.59 & 0.35 & 0.11 & 0.27 & 0.07 & 0.02 \\
+claude-v1 & 0.94 & 0.42 & 0.10 & 0.34 & 0.16 & 0.04 \\
+gpt-3.5-turbo & 0.41 & 0.24 & 0.10 & 0.20 & 0.05 & 0.04 \\
+gpt-4 & 0.48 & 0.25 & 0.09 & 0.18 & 0.07 & 0.03 \\
+koala-13b & 0.63 & 0.35 & 0.09 & 0.27 & 0.05 & 0.04 \\
+oasst-pythia-12b & 0.43 & 0.29 & 0.12 & 0.19 & 0.04 & 0.04 \\
+palm-2 & 0.57 & 0.36 & 0.09 & 0.35 & 0.08 & 0.04 \\
+vicuna-13b & 0.55 & 0.29 & 0.10 & 0.25 & 0.06 & 0.04 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Auxiliary Verbs Usage (mean count per response) (Part 3/4)}
+\label{tab:fw_auxiliary_verbs_part3}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \textit{will} & \textit{would} & \textit{can} & \textit{could} & \textit{should} & \textit{may} \\
+\midrule
+RWKV-4-Raven-14B & 0.31 & 0.16 & 1.01 & 0.17 & 0.11 & 0.19 \\
+alpaca-13b & 0.14 & 0.11 & 0.45 & 0.09 & 0.09 & 0.05 \\
+chatglm-6b & 0.40 & 0.20 & 1.22 & 0.19 & 0.13 & 0.34 \\
+claude-v1 & 0.46 & 0.42 & 1.08 & 0.24 & 0.15 & 0.39 \\
+gpt-3.5-turbo & 0.23 & 0.16 & 0.90 & 0.15 & 0.08 & 0.26 \\
+gpt-4 & 0.29 & 0.18 & 1.02 & 0.16 & 0.11 & 0.27 \\
+koala-13b & 0.37 & 0.24 & 1.20 & 0.21 & 0.09 & 0.37 \\
+oasst-pythia-12b & 0.27 & 0.20 & 0.93 & 0.16 & 0.14 & 0.22 \\
+palm-2 & 0.61 & 0.28 & 1.39 & 0.22 & 0.17 & 0.21 \\
+vicuna-13b & 0.30 & 0.22 & 1.12 & 0.22 & 0.10 & 0.32 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Auxiliary Verbs Usage (mean count per response) (Part 4/4)}
+\label{tab:fw_auxiliary_verbs_part4}
+\begin{tabular}{lc}
+\toprule
+Model & \textit{might} \\
+\midrule
+RWKV-4-Raven-14B & 0.04 \\
+alpaca-13b & 0.02 \\
+chatglm-6b & 0.06 \\
+claude-v1 & 0.02 \\
+gpt-3.5-turbo & 0.04 \\
+gpt-4 & 0.12 \\
+koala-13b & 0.06 \\
+oasst-pythia-12b & 0.03 \\
+palm-2 & 0.07 \\
+vicuna-13b & 0.08 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Particles ---
+\begin{table}[htbp]
+\centering
+\caption{Particles Usage (mean count per response)}
+\label{tab:fw_particles}
+\begin{tabular}{lcccc}
+\toprule
+Model & \textit{not} & \textit{up} & \textit{off} & \textit{out} \\
+\midrule
+RWKV-4-Raven-14B & 0.47 & 0.13 & 0.03 & 0.09 \\
+alpaca-13b & 0.14 & 0.07 & 0.01 & 0.06 \\
+chatglm-6b & 0.64 & 0.13 & 0.03 & 0.09 \\
+claude-v1 & 0.71 & 0.26 & 0.05 & 0.15 \\
+gpt-3.5-turbo & 0.39 & 0.13 & 0.02 & 0.11 \\
+gpt-4 & 0.43 & 0.16 & 0.04 & 0.10 \\
+koala-13b & 0.56 & 0.16 & 0.03 & 0.09 \\
+oasst-pythia-12b & 0.33 & 0.11 & 0.03 & 0.08 \\
+palm-2 & 0.67 & 0.19 & 0.04 & 0.13 \\
+vicuna-13b & 0.55 & 0.16 & 0.03 & 0.10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Quantifiers ---
+\begin{table}[htbp]
+\centering
+\caption{Quantifiers Usage (mean count per response)}
+\label{tab:fw_quantifiers}
+\begin{tabular}{lccccc}
+\toprule
+Model & \textit{some} & \textit{many} & \textit{few} & \textit{all} & \textit{each} \\
+\midrule
+RWKV-4-Raven-14B & 0.19 & 0.12 & 0.05 & 0.14 & 0.14 \\
+alpaca-13b & 0.08 & 0.05 & 0.02 & 0.07 & 0.06 \\
+chatglm-6b & 0.24 & 0.16 & 0.07 & 0.19 & 0.16 \\
+claude-v1 & 0.66 & 0.25 & 0.11 & 0.27 & 0.23 \\
+gpt-3.5-turbo & 0.22 & 0.10 & 0.04 & 0.16 & 0.16 \\
+gpt-4 & 0.22 & 0.07 & 0.03 & 0.18 & 0.20 \\
+koala-13b & 0.25 & 0.14 & 0.07 & 0.19 & 0.16 \\
+oasst-pythia-12b & 0.19 & 0.12 & 0.04 & 0.15 & 0.13 \\
+palm-2 & 0.37 & 0.20 & 0.11 & 0.31 & 0.21 \\
+vicuna-13b & 0.27 & 0.16 & 0.06 & 0.16 & 0.17 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ========== N-GRAM FREQUENCY TABLES ==========
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for RWKV-4-Raven-14B}
+\label{tab:unigrams_RWKV_4_Raven_14B}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 25,634 \\
+\textit{and} & 14,677 \\
+\textit{to} & 12,923 \\
+\textit{of} & 10,990 \\
+\textit{is} & 7,590 \\
+\textit{in} & 6,402 \\
+\textit{that} & 5,361 \\
+\textit{it} & 4,324 \\
+\textit{you} & 4,289 \\
+\textit{for} & 4,089 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for RWKV-4-Raven-14B}
+\label{tab:bigrams_RWKV_4_Raven_14B}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 2,809 \\
+\textit{in the} & 1,938 \\
+\textit{to the} & 1,202 \\
+\textit{it is} & 1,156 \\
+\textit{and the} & 1,048 \\
+\textit{on the} & 979 \\
+\textit{can be} & 841 \\
+\textit{you can} & 828 \\
+\textit{such as} & 822 \\
+\textit{that the} & 588 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for alpaca-13b}
+\label{tab:unigrams_alpaca_13b}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 11,024 \\
+\textit{and} & 6,890 \\
+\textit{to} & 5,917 \\
+\textit{of} & 4,754 \\
+\textit{is} & 3,622 \\
+\textit{in} & 2,841 \\
+\textit{it} & 2,199 \\
+\textit{you} & 1,967 \\
+\textit{for} & 1,734 \\
+\textit{that} & 1,610 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for alpaca-13b}
+\label{tab:bigrams_alpaca_13b}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 1,209 \\
+\textit{in the} & 801 \\
+\textit{it is} & 571 \\
+\textit{to the} & 461 \\
+\textit{on the} & 421 \\
+\textit{such as} & 408 \\
+\textit{and the} & 390 \\
+\textit{can be} & 380 \\
+\textit{you can} & 357 \\
+\textit{is the} & 340 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for chatglm-6b}
+\label{tab:unigrams_chatglm_6b}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 30,272 \\
+\textit{and} & 18,077 \\
+\textit{to} & 16,319 \\
+\textit{of} & 13,349 \\
+\textit{is} & 9,871 \\
+\textit{in} & 7,744 \\
+\textit{that} & 6,843 \\
+\textit{it} & 5,650 \\
+\textit{you} & 5,408 \\
+\textit{for} & 4,699 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for chatglm-6b}
+\label{tab:bigrams_chatglm_6b}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 3,498 \\
+\textit{in the} & 2,430 \\
+\textit{it is} & 1,540 \\
+\textit{to the} & 1,458 \\
+\textit{and the} & 1,302 \\
+\textit{on the} & 1,253 \\
+\textit{can be} & 1,076 \\
+\textit{such as} & 1,028 \\
+\textit{years and} & 953 \\
+\textit{you can} & 929 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for claude-v1}
+\label{tab:unigrams_claude_v1}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 30,326 \\
+\textit{and} & 18,940 \\
+\textit{to} & 15,404 \\
+\textit{of} & 12,511 \\
+\textit{in} & 9,339 \\
+\textit{is} & 8,088 \\
+\textit{for} & 6,611 \\
+\textit{you} & 5,411 \\
+\textit{are} & 4,687 \\
+\textit{that} & 4,453 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for claude-v1}
+\label{tab:bigrams_claude_v1}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 2,865 \\
+\textit{in the} & 2,076 \\
+\textit{if you} & 1,336 \\
+\textit{to the} & 1,206 \\
+\textit{let me} & 1,096 \\
+\textit{on the} & 1,087 \\
+\textit{me know} & 1,072 \\
+\textit{know if} & 1,070 \\
+\textit{you have} & 1,040 \\
+\textit{have any} & 833 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for gpt-3.5-turbo}
+\label{tab:unigrams_gpt_3.5_turbo}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 20,283 \\
+\textit{and} & 12,841 \\
+\textit{to} & 11,204 \\
+\textit{of} & 8,619 \\
+\textit{in} & 5,770 \\
+\textit{is} & 5,708 \\
+\textit{that} & 4,219 \\
+\textit{you} & 3,667 \\
+\textit{for} & 3,661 \\
+\textit{it} & 3,412 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for gpt-3.5-turbo}
+\label{tab:bigrams_gpt_3.5_turbo}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 2,007 \\
+\textit{in the} & 1,570 \\
+\textit{to the} & 978 \\
+\textit{on the} & 819 \\
+\textit{it is} & 817 \\
+\textit{and the} & 661 \\
+\textit{such as} & 639 \\
+\textit{can be} & 593 \\
+\textit{you can} & 576 \\
+\textit{with the} & 446 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for gpt-4}
+\label{tab:unigrams_gpt_4}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 28,936 \\
+\textit{and} & 19,272 \\
+\textit{to} & 14,143 \\
+\textit{of} & 11,827 \\
+\textit{in} & 7,930 \\
+\textit{is} & 5,640 \\
+\textit{for} & 5,361 \\
+\textit{or} & 4,380 \\
+\textit{with} & 4,228 \\
+\textit{as} & 4,161 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for gpt-4}
+\label{tab:bigrams_gpt_4}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 2,515 \\
+\textit{in the} & 2,041 \\
+\textit{to the} & 1,295 \\
+\textit{and the} & 1,137 \\
+\textit{on the} & 1,032 \\
+\textit{such as} & 954 \\
+\textit{with the} & 725 \\
+\textit{can be} & 669 \\
+\textit{it is} & 659 \\
+\textit{for the} & 650 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for koala-13b}
+\label{tab:unigrams_koala_13b}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 31,623 \\
+\textit{and} & 18,254 \\
+\textit{to} & 16,178 \\
+\textit{of} & 14,019 \\
+\textit{is} & 9,555 \\
+\textit{in} & 7,823 \\
+\textit{that} & 6,842 \\
+\textit{it} & 5,736 \\
+\textit{for} & 5,029 \\
+\textit{you} & 4,877 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for koala-13b}
+\label{tab:bigrams_koala_13b}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 3,693 \\
+\textit{div div} & 2,638 \\
+\textit{in the} & 2,342 \\
+\textit{it is} & 1,688 \\
+\textit{and the} & 1,597 \\
+\textit{to the} & 1,456 \\
+\textit{on the} & 1,304 \\
+\textit{such as} & 1,247 \\
+\textit{can be} & 1,164 \\
+\textit{that the} & 846 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for oasst-pythia-12b}
+\label{tab:unigrams_oasst_pythia_12b}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 23,662 \\
+\textit{and} & 15,090 \\
+\textit{to} & 12,475 \\
+\textit{of} & 10,015 \\
+\textit{is} & 6,696 \\
+\textit{in} & 5,900 \\
+\textit{that} & 5,139 \\
+\textit{you} & 3,978 \\
+\textit{it} & 3,862 \\
+\textit{for} & 3,723 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for oasst-pythia-12b}
+\label{tab:bigrams_oasst_pythia_12b}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 2,525 \\
+\textit{in the} & 1,729 \\
+\textit{to the} & 1,100 \\
+\textit{and the} & 1,047 \\
+\textit{it is} & 920 \\
+\textit{on the} & 879 \\
+\textit{such as} & 823 \\
+\textit{can be} & 815 \\
+\textit{you can} & 783 \\
+\textit{that the} & 547 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for palm-2}
+\label{tab:unigrams_palm_2}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 31,154 \\
+\textit{to} & 18,230 \\
+\textit{and} & 15,470 \\
+\textit{of} & 13,820 \\
+\textit{is} & 13,618 \\
+\textit{in} & 7,975 \\
+\textit{that} & 7,888 \\
+\textit{you} & 6,910 \\
+\textit{it} & 6,062 \\
+\textit{are} & 5,612 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for palm-2}
+\label{tab:bigrams_palm_2}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 3,388 \\
+\textit{it is} & 2,188 \\
+\textit{in the} & 2,171 \\
+\textit{can be} & 1,416 \\
+\textit{to the} & 1,406 \\
+\textit{if you} & 1,312 \\
+\textit{you can} & 1,112 \\
+\textit{on the} & 1,066 \\
+\textit{and the} & 976 \\
+\textit{to be} & 965 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Unigrams for vicuna-13b}
+\label{tab:unigrams_vicuna_13b}
+\begin{tabular}{lr}
+\toprule
+Word & Frequency \\
+\midrule
+\textit{the} & 29,624 \\
+\textit{and} & 17,618 \\
+\textit{to} & 15,370 \\
+\textit{of} & 13,060 \\
+\textit{is} & 8,816 \\
+\textit{in} & 7,594 \\
+\textit{that} & 6,271 \\
+\textit{it} & 4,966 \\
+\textit{for} & 4,800 \\
+\textit{you} & 4,475 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Top 10 Bigrams for vicuna-13b}
+\label{tab:bigrams_vicuna_13b}
+\begin{tabular}{lr}
+\toprule
+Bigram & Frequency \\
+\midrule
+\textit{of the} & 3,401 \\
+\textit{in the} & 2,228 \\
+\textit{to the} & 1,432 \\
+\textit{it is} & 1,407 \\
+\textit{and the} & 1,259 \\
+\textit{on the} & 1,163 \\
+\textit{such as} & 1,010 \\
+\textit{can be} & 899 \\
+\textit{you can} & 781 \\
+\textit{that the} & 708 \\
+\bottomrule
+\end{tabular}
+\end{table}

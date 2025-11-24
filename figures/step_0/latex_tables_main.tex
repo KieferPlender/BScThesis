@@ -1,0 +1,116 @@
+% Main Document Tables - Summary and Key Results
+% Add \usepackage{booktabs} to your LaTeX preamble
+
+% ========== SUMMARY TABLE ==========
+\begin{table}[htbp]
+\centering
+\caption{Summary of Key Stylistic Features by Model}
+\label{tab:summary_stylistic}
+\begin{tabular}{lccccc}
+\toprule
+Model & TTR & Sent. Len & NOUN & VERB & \textit{you} \\
+\midrule
+RWKV-4-Raven-14B & 0.57 & 24.6 & 187.4 & 95.1 & 1.24 \\
+alpaca-13b & 0.71 & 20.7 & 187.5 & 97.3 & 0.57 \\
+chatglm-6b & 0.54 & 26.8 & 187.7 & 95.5 & 1.55 \\
+claude-v1 & 0.54 & 23.1 & 195.2 & 100.4 & 1.56 \\
+gpt-3.5-turbo & 0.62 & 23.4 & 187.5 & 96.6 & 1.05 \\
+gpt-4 & 0.59 & 24.5 & 193.7 & 95.5 & 1.18 \\
+koala-13b & 0.53 & 27.3 & 184.1 & 92.6 & 1.40 \\
+oasst-pythia-12b & 0.60 & 24.3 & 188.3 & 96.9 & 1.15 \\
+palm-2 & 0.54 & 21.6 & 172.5 & 99.0 & 1.99 \\
+vicuna-13b & 0.55 & 25.9 & 188.7 & 95.3 & 1.29 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ========== LEXICAL DIVERSITY ==========
+\begin{table}[htbp]
+\centering
+\caption{Lexical Diversity Metrics by Model}
+\label{tab:lexical_diversity}
+\begin{tabular}{lcc}
+\toprule
+Model & TTR & Avg. Sentence Length \\
+\midrule
+RWKV-4-Raven-14B & 0.57 & 24.56 \\
+alpaca-13b & 0.71 & 20.70 \\
+chatglm-6b & 0.54 & 26.80 \\
+claude-v1 & 0.54 & 23.08 \\
+gpt-3.5-turbo & 0.62 & 23.42 \\
+gpt-4 & 0.59 & 24.55 \\
+koala-13b & 0.53 & 27.31 \\
+oasst-pythia-12b & 0.60 & 24.25 \\
+palm-2 & 0.54 & 21.58 \\
+vicuna-13b & 0.55 & 25.94 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ========== PART-OF-SPEECH TAGS ==========
+\begin{table}[htbp]
+\centering
+\caption{Content Word POS Distribution (per 1000 tokens)}
+\label{tab:pos_content}
+\begin{tabular}{lccccc}
+\toprule
+Model & NOUN & VERB & ADJ & ADV & PROPN \\
+\midrule
+RWKV-4-Raven-14B & 187.40 & 95.11 & 64.56 & 23.23 & 51.86 \\
+alpaca-13b & 187.46 & 97.29 & 65.49 & 25.92 & 57.95 \\
+chatglm-6b & 187.74 & 95.46 & 65.18 & 24.11 & 45.08 \\
+claude-v1 & 195.16 & 100.42 & 68.15 & 27.93 & 55.61 \\
+gpt-3.5-turbo & 187.51 & 96.61 & 64.43 & 25.61 & 54.59 \\
+gpt-4 & 193.66 & 95.51 & 65.48 & 23.24 & 61.74 \\
+koala-13b & 184.12 & 92.59 & 63.32 & 21.99 & 51.01 \\
+oasst-pythia-12b & 188.31 & 96.87 & 64.81 & 24.64 & 53.44 \\
+palm-2 & 172.49 & 98.99 & 52.91 & 29.41 & 42.40 \\
+vicuna-13b & 188.75 & 95.25 & 66.29 & 24.19 & 49.08 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Function Word POS Distribution (per 1000 tokens)}
+\label{tab:pos_function}
+\begin{tabular}{lccccccc}
+\toprule
+Model & DET & ADP & PRON & AUX & CCONJ & SCONJ & PART \\
+\midrule
+RWKV-4-Raven-14B & 85.57 & 78.88 & 67.92 & 61.16 & 33.87 & 14.67 & 25.45 \\
+alpaca-13b & 84.04 & 79.76 & 65.83 & 63.77 & 31.20 & 13.76 & 23.74 \\
+chatglm-6b & 83.89 & 80.28 & 68.81 & 62.29 & 36.21 & 17.54 & 27.46 \\
+claude-v1 & 71.28 & 73.63 & 52.10 & 45.11 & 30.88 & 11.26 & 21.17 \\
+gpt-3.5-turbo & 77.23 & 79.41 & 66.23 & 57.50 & 34.30 & 15.85 & 24.46 \\
+gpt-4 & 75.31 & 76.30 & 53.10 & 43.56 & 33.69 & 14.43 & 21.73 \\
+koala-13b & 82.20 & 78.90 & 67.09 & 59.50 & 35.09 & 16.04 & 26.09 \\
+oasst-pythia-12b & 84.58 & 78.32 & 68.69 & 62.00 & 34.27 & 15.35 & 25.20 \\
+palm-2 & 80.74 & 79.82 & 80.20 & 69.07 & 31.01 & 17.31 & 33.02 \\
+vicuna-13b & 83.06 & 80.80 & 64.72 & 58.63 & 36.68 & 15.24 & 25.48 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Miscellaneous POS Distribution (per 1000 tokens)}
+\label{tab:pos_misc}
+\begin{tabular}{lccccc}
+\toprule
+Model & PUNCT & NUM & SYM & INTJ & X \\
+\midrule
+RWKV-4-Raven-14B & 144.81 & 23.93 & 3.23 & 5.52 & 6.88 \\
+alpaca-13b & 147.20 & 26.09 & 2.51 & 6.93 & 6.54 \\
+chatglm-6b & 139.80 & 23.30 & 3.44 & 4.59 & 6.60 \\
+claude-v1 & 153.37 & 31.86 & 5.47 & 1.84 & 10.03 \\
+gpt-3.5-turbo & 150.08 & 24.49 & 3.20 & 4.89 & 7.87 \\
+gpt-4 & 165.31 & 28.99 & 3.64 & 3.82 & 10.61 \\
+koala-13b & 145.57 & 20.58 & 3.01 & 5.34 & 13.67 \\
+oasst-pythia-12b & 141.60 & 22.91 & 2.74 & 5.04 & 5.64 \\
+palm-2 & 142.93 & 23.33 & 5.39 & 4.95 & 5.07 \\
+vicuna-13b & 145.42 & 23.25 & 3.57 & 3.88 & 8.27 \\
+\bottomrule
+\end{tabular}
+\end{table}
+

@@ -1,0 +1,10 @@
+pandas
+numpy
+matplotlib
+seaborn
+spacy
+datasets
+tqdm
+scikit-learn
+xgboost
+langdetect
