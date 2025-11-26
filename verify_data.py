@@ -1,8 +1,26 @@
-from datasets import load_dataset
 import pandas as pd
-from collections import Counter
+import re
+import html
+from datasets import load_dataset
+from tqdm import tqdm
 from langdetect import detect, LangDetectException
-import random
+
+# ==========================================
+# CONFIGURATION
+# ==========================================
+TARGET_MODELS = [
+    'vicuna-13b', 'koala-13b', 'oasst-pythia-12b', 'gpt-3.5-turbo', 
+    'alpaca-13b', 'gpt-4', 'claude-v1', 'RWKV-4-Raven-14B', 
+    'chatglm-6b', 'palm-2'
+]
+
+def clean_text(text):
+    if not isinstance(text, str): return ""
+    text = html.unescape(text)
+    text = re.sub(r'<[^>]+>', ' ', text)
+    text = re.sub(r'\bdiv\s+div\b', ' ', text, flags=re.IGNORECASE)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
 
 def is_english(text):
     try:
@@ -10,88 +28,51 @@ def is_english(text):
     except LangDetectException:
         return False
 
-def main():
+def generate_retention_report():
     print("Loading dataset...")
     dataset = load_dataset("lmsys/chatbot_arena_conversations", split="train")
-    df = pd.DataFrame(dataset)
     
-    print("\n=== STEP 1: Extract all assistant responses ===")
-    rows = []
-    for _, row in df.iterrows():
-        # Model A
-        for turn in row['conversation_a']:
-            if turn['role'] == 'assistant':
-                rows.append({
-                    'model': row['model_a'], 
-                    'text': turn['content'],
-                    'conv_id': row.get('conversation_id', 'unknown')
-                })
-        # Model B
-        for turn in row['conversation_b']:
-            if turn['role'] == 'assistant':
-                rows.append({
-                    'model': row['model_b'], 
-                    'text': turn['content'],
-                    'conv_id': row.get('conversation_id', 'unknown')
-                })
+    # Dictionary to hold counts: {model: [raw_count, clean_count]}
+    stats = {m: {'raw': 0, 'clean': 0} for m in TARGET_MODELS}
     
-    df_all = pd.DataFrame(rows)
-    print(f"Total assistant responses: {len(df_all)}")
+    print("Analyzing Data Retention (This checks every row)...")
     
-    print("\n=== STEP 2: Filter for English FIRST ===")
-    print("Detecting English (this may take a while)...")
-    # Sample for speed - detect on first 10k to estimate
-    sample_size = min(10000, len(df_all))
-    df_sample = df_all.sample(sample_size, random_state=42)
-    df_sample['is_english'] = df_sample['text'].apply(is_english)
+    # We scan the full dataset to get accurate numbers
+    for row in tqdm(dataset):
+        # Check Model A
+        if row['model_a'] in TARGET_MODELS:
+            stats[row['model_a']]['raw'] += 1 # Raw count
+            
+            # Check if it survives cleaning
+            if len(row['conversation_a']) > 1:
+                raw_content = row['conversation_a'][1]['content']
+                cleaned = clean_text(raw_content)
+                if cleaned and len(cleaned) > 10 and is_english(cleaned):
+                    stats[row['model_a']]['clean'] += 1
+
+        # Check Model B
+        if row['model_b'] in TARGET_MODELS:
+            stats[row['model_b']]['raw'] += 1 # Raw count
+            
+            # Check if it survives cleaning
+            if len(row['conversation_b']) > 1:
+                raw_content = row['conversation_b'][1]['content']
+                cleaned = clean_text(raw_content)
+                if cleaned and len(cleaned) > 10 and is_english(cleaned):
+                    stats[row['model_b']]['clean'] += 1
+
+    # Print The Table
+    print("\n" + "="*85)
+    print(f"{'Model Name':<20} | {'Raw Count':<10} | {'Valid (Clean)':<15} | {'Retention Rate':<10}")
+    print("-" * 85)
     
-    english_ratio = df_sample['is_english'].mean()
-    estimated_english = int(len(df_all) * english_ratio)
-    print(f"Estimated English responses: {estimated_english:,} ({english_ratio*100:.1f}%)")
-    
-    # For verification, actually filter a subset
-    print("\nFiltering sample for language detection...")
-    df_sample_english = df_sample[df_sample['is_english']]
-    
-    print("\n=== STEP 3: Top 10 models from ENGLISH responses ===")
-    english_counts = df_sample_english['model'].value_counts()
-    print("\nTop 15 models by English response count (from sample):")
-    for i, (model, count) in enumerate(english_counts.head(15).items(), 1):
-        # Extrapolate to full dataset
-        estimated_full = int(count * (len(df_all) / sample_size))
-        print(f"{i:2d}. {model:25s} {count:5d} (est. full: {estimated_full:,})")
-    
-    print("\n=== STEP 4: Random sample verification ===")
-    print("Sampling 3 random responses from each Top 10 model for manual verification:\n")
-    
-    top_10_models = english_counts.head(10).index.tolist()
-    
-    for model in top_10_models:
-        model_responses = df_sample_english[df_sample_english['model'] == model]
-        samples = model_responses.sample(min(3, len(model_responses)), random_state=42)
-        
-        print(f"\n{'='*80}")
-        print(f"MODEL: {model}")
-        print(f"{'='*80}")
-        
-        for idx, (_, row) in enumerate(samples.iterrows(), 1):
-            text_preview = row['text'][:200].replace('\n', ' ')
-            print(f"\nSample {idx}:")
-            print(f"  {text_preview}...")
-            print(f"  [Full length: {len(row['text'])} chars]")
-    
-    print("\n\n=== COMPARISON ===")
-    print("Current Top 10 (overall frequency):")
-    current_top_10 = ['vicuna-13b', 'koala-13b', 'oasst-pythia-12b', 'gpt-3.5-turbo', 
-                      'alpaca-13b', 'gpt-4', 'claude-v1', 'RWKV-4-Raven-14B', 
-                      'chatglm-6b', 'fastchat-t5-3b']
-    for i, m in enumerate(current_top_10, 1):
-        print(f"{i:2d}. {m}")
-    
-    print("\nTop 10 from English-first approach:")
-    for i, m in enumerate(top_10_models, 1):
-        status = "✓ SAME" if m in current_top_10 else "✗ DIFFERENT"
-        print(f"{i:2d}. {m:25s} {status}")
+    for model, data in stats.items():
+        raw = data['raw']
+        clean = data['clean']
+        # Avoid divide by zero
+        rate = (clean / raw * 100) if raw > 0 else 0
+        print(f"{model:<20} | {raw:<10} | {clean:<15} | {rate:.1f}%")
+    print("="*85)
 
 if __name__ == "__main__":
-    main()
+    generate_retention_report()

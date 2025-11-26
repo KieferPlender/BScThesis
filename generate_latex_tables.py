@@ -2,8 +2,10 @@ import pandas as pd
 import numpy as np
 
 def format_value(mean, std):
-    """Format mean with 2 decimal places."""
-    return f"{mean:.2f}"
+    """Format mean and std: 12.34 (1.20)"""
+    if pd.isna(mean) or pd.isna(std):
+        return "N/A"
+    return f"{mean:.2f} ({std:.2f})"
 
 def generate_lexical_diversity_table(df):
     """Generate LaTeX table for lexical diversity metrics."""
@@ -18,9 +20,12 @@ def generate_lexical_diversity_table(df):
     latex.append("\\midrule")
     
     for model in df.index:
+        # SAFETY FIX: Escape underscores for LaTeX
+        model_name = model.replace('_', '\\_')
+        
         ttr = format_value(df.loc[model, ('ttr', 'mean')], df.loc[model, ('ttr', 'std')])
         sent_len = format_value(df.loc[model, ('avg_sent_len', 'mean')], df.loc[model, ('avg_sent_len', 'std')])
-        latex.append(f"{model} & {ttr} & {sent_len} \\\\")
+        latex.append(f"{model_name} & {ttr} & {sent_len} \\\\")
     
     latex.append("\\bottomrule")
     latex.append("\\end{tabular}")
@@ -47,7 +52,8 @@ def generate_pos_table(df, pos_tags, caption, label):
     
     # Data rows
     for model in df.index:
-        row = [model]
+        # SAFETY FIX: Escape underscores
+        row = [model.replace('_', '\\_')]
         for tag in pos_tags:
             col_name = f'pos_{tag}'
             if (col_name, 'mean') in df.columns:
@@ -118,7 +124,7 @@ def generate_summary_table(df):
     latex = []
     latex.append("\\begin{table}[htbp]")
     latex.append("\\centering")
-    latex.append("\\caption{Summary of Key Stylistic Features by Model}")
+    latex.append("\\caption{Summary of Key Stylistic Features by Model (Mean (SD))}")
     latex.append("\\label{tab:summary_stylistic}")
     latex.append("\\begin{tabular}{lccccc}")
     latex.append("\\toprule")
@@ -126,11 +132,12 @@ def generate_summary_table(df):
     latex.append("\\midrule")
     
     for model in df.index:
-        ttr = f"{df.loc[model, ('ttr', 'mean')]:.2f}"
-        sent = f"{df.loc[model, ('avg_sent_len', 'mean')]:.1f}"
-        noun = f"{df.loc[model, ('pos_NOUN', 'mean')]:.1f}"
-        verb = f"{df.loc[model, ('pos_VERB', 'mean')]:.1f}"
-        you = f"{df.loc[model, ('you', 'mean')]:.2f}"
+        # Use format_value to get Mean (SD)
+        ttr = format_value(df.loc[model, ('ttr', 'mean')], df.loc[model, ('ttr', 'std')])
+        sent = format_value(df.loc[model, ('avg_sent_len', 'mean')], df.loc[model, ('avg_sent_len', 'std')])
+        noun = format_value(df.loc[model, ('pos_NOUN', 'mean')], df.loc[model, ('pos_NOUN', 'std')])
+        verb = format_value(df.loc[model, ('pos_VERB', 'mean')], df.loc[model, ('pos_VERB', 'std')])
+        you = format_value(df.loc[model, ('you', 'mean')], df.loc[model, ('you', 'std')])
         
         model_name = model.replace('_', '\\_')
         latex.append(f"{model_name} & {ttr} & {sent} & {noun} & {verb} & {you} \\\\")
@@ -173,11 +180,13 @@ def generate_ngram_table(ngrams, n=10):
     tables = []
     
     for model in sorted(ngrams.keys()):
+        model_name_latex = model.replace('_', '\\_').replace('-', '\\-') # Safe escaping
+        
         # Unigrams table
         latex_uni = []
         latex_uni.append("\\begin{table}[htbp]")
         latex_uni.append("\\centering")
-        latex_uni.append(f"\\caption{{Top {n} Unigrams for {model}}}")
+        latex_uni.append(f"\\caption{{Top {n} Unigrams for {model_name_latex}}}")
         latex_uni.append(f"\\label{{tab:unigrams_{model.replace('-', '_')}}}")
         latex_uni.append("\\begin{tabular}{lr}")
         latex_uni.append("\\toprule")
@@ -196,7 +205,7 @@ def generate_ngram_table(ngrams, n=10):
         latex_bi = []
         latex_bi.append("\\begin{table}[htbp]")
         latex_bi.append("\\centering")
-        latex_bi.append(f"\\caption{{Top {n} Bigrams for {model}}}")
+        latex_bi.append(f"\\caption{{Top {n} Bigrams for {model_name_latex}}}")
         latex_bi.append(f"\\label{{tab:bigrams_{model.replace('-', '_')}}}")
         latex_bi.append("\\begin{tabular}{lr}")
         latex_bi.append("\\toprule")
@@ -217,17 +226,20 @@ def generate_ngram_table(ngrams, n=10):
     return "\n\n".join(tables)
 
 def main():
-    # Load the CSV
-    df = pd.read_csv('figures/step_0/summary_stats.csv', header=[0, 1], index_col=0)
+    # Load the CORRECT CSV (The normalized one)
+    print("Loading normalized statistics...")
+    df = pd.read_csv('figures/step_0/summary_stats_normalized.csv', header=[0, 1], index_col=0)
     
-    # Parse N-grams
-    ngrams = parse_ngrams_file('figures/step_0/top_ngrams.txt')
+    # Parse the CORRECT N-grams text file
+    print("Loading N-gram report...")
+    ngrams = parse_ngrams_file('figures/step_0/top_ngrams_report.txt')
     
     # Create two output files: main tables and appendix tables
     main_output = 'figures/step_0/latex_tables_main.tex'
     appendix_output = 'figures/step_0/latex_tables_appendix.tex'
     
     # ========== MAIN TABLES ==========
+    print("Generating Main Tables...")
     with open(main_output, 'w') as f:
         f.write("% Main Document Tables - Summary and Key Results\n")
         f.write("% Add \\usepackage{booktabs} to your LaTeX preamble\n\n")
@@ -263,6 +275,7 @@ def main():
         f.write("\n\n")
     
     # ========== APPENDIX TABLES ==========
+    print("Generating Appendix Tables...")
     with open(appendix_output, 'w') as f:
         f.write("% Appendix Tables - Complete Analysis Results\n")
         f.write("% Add \\usepackage{booktabs} to your LaTeX preamble\n\n")
@@ -320,18 +333,8 @@ def main():
     
     print(f"✅ Main tables saved to: {main_output}")
     print(f"✅ Appendix tables saved to: {appendix_output}")
-    print("\nMain tables include:")
-    print("  - Summary table (key features)")
-    print("  - Lexical diversity")
-    print("  - POS distributions (3 tables)")
-    print("\nAppendix tables include:")
-    print("  - ALL function words (84 words across 6 categories)")
-    print("  - Top 10 unigrams for each model (10 tables)")
-    print("  - Top 10 bigrams for each model (10 tables)")
-    print("\nTo use in your LaTeX document:")
-    print("1. Add \\usepackage{booktabs} to your preamble")
-    print("2. Main text: \\input{figures/step_0/latex_tables_main.tex}")
-    print("3. Appendix: \\input{figures/step_0/latex_tables_appendix.tex}")
+    print("\nTables now include Mean and Standard Deviation (e.g., '12.34 (1.50)')")
+    print("Files read: 'summary_stats_normalized.csv' and 'top_ngrams_report.txt'")
 
 if __name__ == "__main__":
     main()

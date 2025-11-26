@@ -1,0 +1,440 @@
+
+--- RWKV-4-Raven-14B_unigrams ---
+use: 1004
+used: 851
+time: 644
+make: 627
+help: 622
+create: 596
+new: 592
+data: 591
+sure: 570
+important: 554
+model: 545
+using: 534
+like: 456
+10: 455
+language: 453
+provide: 443
+example: 440
+different: 438
+function: 438
+world: 432
+
+--- RWKV-4-Raven-14B_bigrams ---
+of the: 2335
+in the: 1650
+to the: 1040
+it is: 1029
+and the: 906
+on the: 853
+you can: 728
+can be: 726
+such as: 726
+that the: 528
+with the: 497
+is the: 495
+to be: 439
+for the: 421
+used to: 420
+important to: 411
+that is: 359
+is not: 355
+as the: 346
+there are: 335
+
+--- alpaca-13b_unigrams ---
+make: 362
+help: 349
+used: 346
+use: 330
+time: 323
+data: 305
+like: 249
+sure: 228
+create: 211
+world: 206
+need: 205
+way: 201
+new: 198
+day: 194
+10: 189
+best: 176
+number: 173
+people: 171
+yes: 170
+code: 169
+
+--- alpaca-13b_bigrams ---
+of the: 1028
+in the: 620
+it is: 493
+to the: 407
+on the: 363
+and the: 344
+can be: 323
+such as: 323
+you can: 321
+is the: 290
+to be: 219
+used to: 217
+with the: 181
+for the: 158
+to make: 156
+need to: 150
+from the: 148
+the most: 148
+can help: 145
+that the: 143
+
+--- chatglm-6b_unigrams ---
+use: 1301
+used: 1170
+data: 1158
+years: 1049
+important: 878
+make: 797
+help: 796
+time: 768
+using: 752
+different: 641
+new: 637
+create: 635
+model: 625
+information: 617
+specific: 587
+way: 586
+function: 582
+world: 581
+number: 561
+language: 547
+
+--- chatglm-6b_bigrams ---
+of the: 3003
+in the: 2107
+it is: 1345
+to the: 1283
+and the: 1116
+on the: 1096
+can be: 952
+years and: 951
+and years: 928
+such as: 906
+you can: 785
+that the: 768
+important to: 641
+used to: 619
+if you: 604
+to be: 598
+is not: 579
+for the: 566
+with the: 557
+is the: 549
+
+--- claude-v1_unigrams ---
+like: 1932
+let: 1249
+time: 1165
+know: 1103
+questions: 832
+make: 795
+new: 789
+use: 772
+data: 763
+help: 709
+10: 671
+need: 636
+key: 621
+summary: 586
+used: 574
+provide: 543
+based: 529
+high: 528
+using: 500
+python: 493
+
+--- claude-v1_bigrams ---
+of the: 2456
+in the: 1794
+if you: 1149
+to the: 1053
+let me: 933
+on the: 931
+me know: 911
+know if: 908
+you have: 879
+here is: 705
+have any: 692
+you can: 688
+any other: 622
+there are: 621
+for the: 605
+and the: 604
+other questions: 580
+can be: 546
+to be: 525
+here are: 523
+
+--- gpt-3.5-turbo_unigrams ---
+use: 720
+time: 646
+help: 575
+language: 528
+model: 520
+ai: 507
+data: 499
+new: 483
+like: 469
+used: 464
+make: 463
+using: 438
+sure: 426
+function: 425
+need: 417
+important: 415
+provide: 386
+information: 375
+number: 374
+code: 353
+
+--- gpt-3.5-turbo_bigrams ---
+of the: 1826
+in the: 1354
+to the: 845
+on the: 703
+it is: 682
+and the: 591
+such as: 568
+can be: 543
+you can: 543
+with the: 373
+for the: 364
+that the: 343
+is the: 324
+important to: 316
+as an: 303
+to be: 298
+need to: 297
+language model: 294
+an ai: 288
+if you: 282
+
+--- gpt-4_unigrams ---
+like: 868
+time: 846
+help: 826
+data: 779
+use: 761
+using: 677
+ai: 640
+new: 612
+number: 601
+create: 580
+provide: 549
+make: 533
+model: 525
+information: 517
+used: 517
+world: 509
+10: 495
+based: 458
+function: 445
+need: 439
+
+--- gpt-4_bigrams ---
+of the: 2155
+in the: 1683
+to the: 1080
+and the: 963
+on the: 887
+such as: 791
+with the: 616
+can be: 588
+it is: 575
+you can: 554
+for the: 548
+as the: 468
+from the: 432
+if you: 426
+based on: 324
+help you: 315
+is the: 314
+to be: 313
+that the: 312
+by the: 302
+
+--- koala-13b_unigrams ---
+use: 1290
+used: 1220
+data: 945
+important: 898
+model: 754
+number: 744
+time: 732
+new: 716
+make: 710
+help: 696
+using: 671
+way: 615
+different: 609
+example: 591
+need: 572
+world: 547
+specific: 546
+ai: 541
+including: 528
+information: 501
+
+--- koala-13b_bigrams ---
+of the: 3237
+in the: 2131
+and the: 1455
+it is: 1413
+to the: 1258
+on the: 1147
+such as: 1062
+can be: 950
+that the: 745
+important to: 681
+you can: 675
+used to: 640
+for the: 605
+if you: 579
+to be: 522
+number of: 509
+with the: 506
+is the: 505
+that is: 504
+is not: 491
+
+--- oasst-pythia-12b_unigrams ---
+use: 942
+used: 789
+data: 657
+time: 650
+help: 590
+make: 585
+new: 584
+important: 568
+using: 514
+world: 488
+create: 461
+ai: 435
+including: 430
+way: 427
+function: 420
+like: 399
+example: 391
+code: 390
+people: 383
+sure: 379
+
+--- oasst-pythia-12b_bigrams ---
+of the: 2217
+in the: 1453
+to the: 956
+and the: 923
+it is: 830
+on the: 731
+such as: 731
+can be: 707
+you can: 702
+that the: 479
+used to: 407
+with the: 403
+important to: 400
+to be: 397
+for the: 395
+is the: 354
+if you: 350
+that is: 343
+as the: 327
+from the: 299
+
+--- palm-2_unigrams ---
+used: 1264
+time: 1161
+help: 1102
+use: 1069
+make: 862
+way: 821
+new: 778
+important: 776
+number: 749
+people: 733
+data: 723
+world: 723
+game: 670
+sure: 651
+able: 633
+model: 609
+need: 599
+example: 555
+create: 551
+language: 539
+
+--- palm-2_bigrams ---
+of the: 2930
+in the: 1855
+it is: 1810
+to the: 1240
+can be: 1197
+if you: 1144
+you can: 953
+on the: 925
+and the: 859
+to be: 819
+is the: 784
+used to: 781
+that is: 703
+this is: 695
+there are: 674
+be used: 667
+able to: 632
+that the: 604
+you are: 549
+such as: 546
+
+--- vicuna-13b_unigrams ---
+use: 1115
+used: 934
+data: 849
+help: 707
+time: 692
+important: 682
+model: 673
+using: 658
+number: 587
+make: 585
+new: 572
+language: 550
+different: 537
+information: 518
+function: 493
+like: 490
+ai: 484
+provide: 484
+need: 482
+example: 476
+
+--- vicuna-13b_bigrams ---
+of the: 2983
+in the: 1908
+it is: 1229
+to the: 1221
+and the: 1056
+on the: 1000
+such as: 935
+can be: 785
+you can: 668
+that the: 605
+with the: 560
+important to: 512
+to be: 511
+for the: 505
+used to: 455
+is the: 450
+as the: 434
+if you: 434
+is not: 407
+that is: 406
